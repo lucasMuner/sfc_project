@@ -1,4 +1,4 @@
-const socket = io('https://api-sfc.vercel.app'); 
+const socket = io('ws://api-sfc.vercel.app'); 
 
 socket.on('connect', () => {
   console.log('Conectado ao servidor WebSocket');
@@ -17,7 +17,7 @@ socket.on('dadosAtualizados', (dados) => {
 });
 
 
-fetch('https://api-sfc.vercel.app/dados')
+fetch('ws://api-sfc.vercel.app/dados')
 .then(response => response.json())
 .then(data => {
   console.log(data); // Os dados da rota /dados serão exibidos no console
@@ -46,7 +46,7 @@ form.addEventListener('submit', (event) => {
   };
 
   // Faça a solicitação fetch para atualizar o banco de dados com os novos valores
-  fetch(`https://api-sfc.vercel.app/atualizar-dado`, {
+  fetch(`ws://api-sfc.vercel.app/atualizar-dado`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
