@@ -1,4 +1,4 @@
-const socket = io('wss://api-sfc.vercel.app'); 
+const socket = io('https://api-sfc.vercel.app'); 
 
 socket.on('connect', () => {
   console.log('Conectado ao servidor WebSocket');
