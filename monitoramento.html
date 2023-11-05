@@ -118,10 +118,21 @@
       }
 
       .text-monitor{
-          font-size: 30px;
+          display: flex;
+          font-size: 20px;
           list-style-type:circle;
-          margin-left: 120px;
+          margin-left: 200px;
           margin-top: 75px;
+          text-align: center;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 95%;
+          
+      }
+
+      .border-new{
+        border: 20px;
+        border-color: #6528e0;
       }
 
   
@@ -132,6 +143,65 @@
       .bd-mode-toggle .dropdown-menu .active .bi {
         display: block !important;
       }
+
+      .input-group {
+ position: relative;
+}
+
+.input {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+  font-weight: 500;
+  font-size: .8vw;
+  color: #fff;
+  background-color: rgb(28,28,30);
+  box-shadow: 0 0 .4vw rgba(0,0,0,0.5), 0 0 0 .15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 500px;
+  transition: .4s;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 .15vw rgba(135, 207, 235, 0.186);
+}
+
+.input:focus {
+  box-shadow: 0 0 0 .15vw skyblue;
+}
+
+button {
+  padding: 1.3em 3em;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2.5px;
+  font-weight: 500;
+  color: #000;
+  background-color: #fff;
+  border: none;
+  border-radius: 45px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease 0s;
+  cursor: pointer;
+  outline: none;
+}
+
+button:hover {
+  background-color: #23c483;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+button:active {
+  transform: translateY(-1px);
+}
+
+
+
+      
+      
     </style>
   
     
@@ -235,34 +305,53 @@
         </ul>
         </div>
     </div>
-    <div class="d-flex b-example-vr ">
-        <div class="d-flex b-example-vr mx-5 justify-content-between"><div class="d-flex p-3 h-100 w-50 text-bg-dark border-2 text-xl">
-                <ol>
-                    <li class="text-monitor" id="temperatura">Temperatura</li>
-                    <li class="text-monitor" id="umidade">Umidade</li>
-                    <li class="text-monitor" id="luminosidade">Luminosidade</li>
-                    <li class="text-monitor" id="setPointTemp">Set Point - Temperatura</li>  
-                    <li class="text-monitor" id="setPointUmi">Set Point - Umidade</li> 
-                    <li class="text-monitor" id="setPointLumi">Set Point - Luminosidade</li>     
-                </ol>
-            </div>
-            <div class="d-flex b-example-vr mx-5"><div class="d-flex p-3 h-50 w-25 text-bg-dark border-2 text-xl ">
-              <form>
-                <label for="setPointTempInput">Set-Point de Temperatura:</label>
-                <input type="text" id="setPointTempInput" name="setPointTemp" />
-                
-                <label for="setPointLumiInput">Set-Point de Luminosidade:</label>
-                <input  type="text" id="setPointLumiInput" name="setPointLumi" />
-                
-                <label for="setPointUmiInput">Set-Point de Umidade:</label>
-                <input  type="text" id="setPointUmiInput" name="setPointUmi" />
-                
-                <!-- Outros campos, se necessário -->
-
-                <button type="submit">Atualizar Set Points</button>
-              </form>
-          </div></div>
+    <div class="container mt-5">
+      <!-- Div para Dados -->
+      <div class="row">
+        <div class="col-md-6">
+          <div class="border p-3">
+            <h2>Dados</h2>
+            <h5 id="temperatura">Temperatura: </h5>
+            <h5 id="umidade">Umidade: </h5>
+            <h5 id="luminosidade">Luminosidade: </h5>
+            <h5 id="setPointTemp">Set Point: </h5>
+          </div>
         </div>
+      </div>
+    
+      <!-- Div para Gráfico -->
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="border p-3">
+            <h2>Gráfico</h2>
+            <!-- Aqui você pode adicionar seu gráfico ou conteúdo relacionado ao gráfico -->
+          </div>
+        </div>
+      </div>
+    
+      <!-- Div para Formulário -->
+      <div class="row mt-4">
+        <div class="col-md-6">
+          <div class="border p-3">
+            <h2>Formulário</h2>
+            <form>
+              <div class="form-group">
+                <input id="setPointTempInput" type="text" name="setPointTemp" class="input" placeholder="Set-Point de Temperatura">
+                <label for="setPointTempInput" class="user-label"></label>
+              </div>
+              <!-- Outros campos do formulário, se necessário -->
+              <button type="submit">
+                <span>
+                  Atualizar
+                </span>
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
     </main>
   
 

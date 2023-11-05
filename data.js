@@ -24,9 +24,7 @@ function fetchDataDataBase(){
     document.querySelector("#umidade").textContent = `Umidade: ${data.umidade}`;
     document.querySelector("#temperatura").textContent = `Temperatura: ${data.temperatura}`;
     document.querySelector("#luminosidade").textContent = `Luminosidade: ${data.luminosidade}`;
-    document.querySelector("#setPointTemp").textContent = `Set-Point de Temperatura: ${data.setPointTemperatura}`;
-    document.querySelector("#setPointUmi").textContent = `Set-Point de Umidade: ${data.SetPointUmidade}`;
-    document.querySelector("#setPointLumi").textContent = `Set-Point de Luminosidade: ${data.setPointLuminosidade}`;
+    document.querySelector("#setPointTemp").textContent = `SP Temperatura: ${data.setPointTemperatura}`;
     
     const form = document.querySelector("form");
 
@@ -35,13 +33,9 @@ function fetchDataDataBase(){
     
     // Obtenha os novos valores dos campos de input
     const setPointTempInput = document.getElementById("setPointTempInput");
-    const setPointLumiInput = document.getElementById("setPointLumiInput");
-    const setPointUmiInput = document.getElementById("setPointUmiInput");
 
     const newSetPoints = {
       setPointTemperatura: setPointTempInput.value,
-      setPointLuminosidade: setPointLumiInput.value,
-      SetPointUmidade: setPointUmiInput.value,
       // Adicione outros set points conforme necessário
     };
 
@@ -63,8 +57,6 @@ function fetchDataDataBase(){
     .then(data => {
       console.log(data.mensagem); // Deve imprimir "Dado atualizado com sucesso" se a atualização for bem-sucedida
       setPointTempInput.value = '';
-      setPointLumiInput.value = '';
-      setPointUmiInput.value = '';
     })
     .catch(error => {
       console.error(error); // Trate erros aqui, se necessário
