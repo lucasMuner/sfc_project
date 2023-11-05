@@ -40,7 +40,7 @@ function fetchDataDataBase(){
     };
 
     // Faça a solicitação fetch para atualizar o banco de dados com os novos valores
-    fetch(`https://api-sfc.vercel.app/atualizar-dado`, {
+    fetch(`https://api-sfc.vercel.app/atualizar-set`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
