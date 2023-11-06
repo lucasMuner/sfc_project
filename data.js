@@ -22,9 +22,9 @@ function fetchDataDataBase(){
   .then(data => {
     console.log(data); // Os dados da rota /dados serão exibidos no console
     document.querySelector("#umidade").textContent = `Umidade: ${data.umidade}`;
-    document.querySelector("#temperatura").textContent = `Temperatura: ${data.temperatura}`;
-    document.querySelector("#luminosidade").textContent = `Luminosidade: ${data.luminosidade}`;
-    document.querySelector("#setPointTemp").textContent = `SP Temperatura: ${data.setPointTemperatura}`;
+    document.querySelector("#temperatura").textContent = `Temperatura: ${data.temperatura} °C`;
+    document.querySelector("#luminosidade").textContent = `Luminosidade: ${data.luminosidade} %`;
+    document.querySelector("#setPointTemp").textContent = `SP Temperatura: ${data.setPointTemperatura} Lux`;
     
     const form = document.querySelector("form");
 
