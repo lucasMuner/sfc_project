@@ -36,9 +36,8 @@ function fetchDataDataBase(){
 
     const newSetPoints = {
       setPointTemperatura: setPointTempInput.value,
-      // Adicione outros set points conforme necessário
     };
-
+    
     // Faça a solicitação fetch para atualizar o banco de dados com os novos valores
     fetch(`https://api-sfc.vercel.app/atualizar-set`, {
       method: 'PUT',
@@ -55,7 +54,7 @@ function fetchDataDataBase(){
       }
     })
     .then(data => {
-      console.log(data.mensagem); // Deve imprimir "Dado atualizado com sucesso" se a atualização for bem-sucedida
+      console.log(data.mensagem); // Deve imprimir "Set-Point alterado com sucesso" se a atualização for bem-sucedida
       setPointTempInput.value = '';
     })
     .catch(error => {
