@@ -1,20 +1,38 @@
-/*const socket = io('https://api-sfc.vercel.app'); 
 
-socket.on('connect', () => {
-  console.log('Conectado ao servidor WebSocket');
+
+const temperaturaData = [];
+const ctx = document.getElementById('myChart');
+const chart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["1","2","3","4","5","6","7","8","9","10"], // Inicialmente, nenhum rótulo
+    datasets: [{
+      label: 'Temperatura',
+      data: temperaturaData, // Usará os dados de temperatura
+      borderWidth: 1,
+
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+        beginAtZero: true
+      }
+    }
+  }
 });
 
-socket.on('dadosAtualizados', (dados) => {
-  console.log('Dados atualizados recebidos:', dados[0]); // Acesse o primeiro item do array
+function updateTemperatureChart(newTemperature) {
+  // Adicione o novo valor ao array de dados de temperatura
+  temperaturaData.push(newTemperature);
 
-  // Atualize a interface do usuário com os dados recebidos
-  document.querySelector("#umidade").textContent = `Umidade: ${dados[0].umidade}`;
-  document.querySelector("#temperatura").textContent = `Temperatura: ${dados[0].temperatura}`;
-  document.querySelector("#luminosidade").textContent = `Luminosidade: ${dados[0].luminosidade}`;
-  document.querySelector("#setPointTemp").textContent = `Set-Point de Temperatura: ${dados[0].setPointTemperatura}`;
-  document.querySelector("#setPointUmi").textContent = `Set-Point de Umidade: ${dados[0].SetPointUmidade}`;
-  document.querySelector("#setPointLumi").textContent = `Set-Point de Luminosidade: ${dados[0].setPointLuminosidade}`;
-});*/
+  // Limita o número de pontos no gráfico para, por exemplo, mostrar apenas os últimos 10 valores
+  if (temperaturaData.length > 10) {
+    temperaturaData.shift();
+  }
+  // Atualize o gráfico
+  chart.update();
+}
 
 function fetchDataDataBase(){
   fetch('https://api-sfc.vercel.app/dados')
@@ -25,6 +43,8 @@ function fetchDataDataBase(){
     document.querySelector("#temperatura").textContent = `Temperatura: ${data.temperatura} °C`;
     document.querySelector("#luminosidade").textContent = `Luminosidade: ${data.luminosidade} Lux`;
     document.querySelector("#setPointTemp").textContent = `SP Temperatura: ${data.setPointTemperatura} °C`;
+
+    updateTemperatureChart(data.temperatura);
     
     const form = document.querySelector("form");
 
