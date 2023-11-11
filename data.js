@@ -91,25 +91,25 @@ function fetchDataDataBase(){
     updateChart(data.temperatura, chartTemp, temperaturaData);
     updateChart(data.umidade, chartUmidade, umidadeData);
     updateChart(data.luminosidade, chartLumi, lumiData);
+    const resetCheckbox = document.getElementById('cb3-8');
+    const lampCheckbox = document.getElementById('cb3-7');
    
     const form = document.querySelector("form");
+    resetCheckbox.checked = data.resetarEsp;
+    lampCheckbox.checked = data.lampadaLigada;
 
-  form.addEventListener('submit', (event) => {
+    form.addEventListener('submit', (event) => {
     event.preventDefault();
     
     // Obtenha os novos valores dos campos de input
     const setPointTempInput = document.getElementById("setPointTempInput");
-
-    const resetCheckbox = document.getElementById('cb3-8');
-    const lampCheckbox = document.getElementById('cb3-7');
-
-
     const isResetChecked = resetCheckbox.checked;
     const isLampChecked = lampCheckbox.checked;
     let newSetPoints = {       
       lampadaLigada: isLampChecked,
       resetarEsp: isResetChecked,
-      setPointTemperatura: setPointTempInput.value};
+      setPointTemperatura: setPointTempInput.value
+    };
 
 
     // Faça a solicitação fetch para atualizar o banco de dados com os novos valores
