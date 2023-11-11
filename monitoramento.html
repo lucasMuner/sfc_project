@@ -202,10 +202,151 @@ button:active {
   transform: translateY(-1px);
 }
 
+body {
+      display: flex;
+      min-height: 100vh;
+      flex-direction: column;
+    }
 
+    main {
+      flex: 1;
+      padding-left: 280px; /* Largura da barra lateral */
+    }
 
-      
-      
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      width: 280px;
+      background-color: #343a40; /* Cor de fundo da barra lateral */
+      padding-top: 20px;
+      overflow-y: auto; /* Adiciona uma barra de rolagem se a barra lateral ficar muito longa */
+    }
+
+    .sidebar a {
+      color: white !important; /* Cor do texto na barra lateral */
+    }
+
+    main {
+      padding-left: 280px; /* Largura da barra lateral */
+    }
+
+    .dropdown-menu {
+      background-color: #343a40; /* Cor de fundo do menu suspenso */
+    }
+
+    .dropdown-menu a {
+      color: white !important; /* Cor do texto no menu suspenso */
+    }
+
+    .checkbox-wrapper-8 .tgl {
+    display: none;
+  }
+  .checkbox-wrapper-8 .tgl,
+  .checkbox-wrapper-8 .tgl:after,
+  .checkbox-wrapper-8 .tgl:before,
+  .checkbox-wrapper-8 .tgl *,
+  .checkbox-wrapper-8 .tgl *:after,
+  .checkbox-wrapper-8 .tgl *:before,
+  .checkbox-wrapper-8 .tgl + .tgl-btn {
+    box-sizing: border-box;
+  }
+  .checkbox-wrapper-8 .tgl::-moz-selection,
+  .checkbox-wrapper-8 .tgl:after::-moz-selection,
+  .checkbox-wrapper-8 .tgl:before::-moz-selection,
+  .checkbox-wrapper-8 .tgl *::-moz-selection,
+  .checkbox-wrapper-8 .tgl *:after::-moz-selection,
+  .checkbox-wrapper-8 .tgl *:before::-moz-selection,
+  .checkbox-wrapper-8 .tgl + .tgl-btn::-moz-selection,
+  .checkbox-wrapper-8 .tgl::selection,
+  .checkbox-wrapper-8 .tgl:after::selection,
+  .checkbox-wrapper-8 .tgl:before::selection,
+  .checkbox-wrapper-8 .tgl *::selection,
+  .checkbox-wrapper-8 .tgl *:after::selection,
+  .checkbox-wrapper-8 .tgl *:before::selection,
+  .checkbox-wrapper-8 .tgl + .tgl-btn::selection {
+    background: none;
+  }
+  .checkbox-wrapper-8 .tgl + .tgl-btn {
+    outline: 0;
+    display: block;
+    width: 4em;
+    height: 2em;
+    position: relative;
+    cursor: pointer;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+  }
+  .checkbox-wrapper-8 .tgl + .tgl-btn:after,
+  .checkbox-wrapper-8 .tgl + .tgl-btn:before {
+    position: relative;
+    display: block;
+    content: "";
+    width: 50%;
+    height: 100%;
+  }
+  .checkbox-wrapper-8 .tgl + .tgl-btn:after {
+    left: 0;
+  }
+  .checkbox-wrapper-8 .tgl + .tgl-btn:before {
+    display: none;
+  }
+  .checkbox-wrapper-8 .tgl:checked + .tgl-btn:after {
+    left: 50%;
+  }
+
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn {
+    overflow: hidden;
+    transform: skew(-10deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    transition: all 0.2s ease;
+    font-family: sans-serif;
+    background: #888;
+  }
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:after,
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:before {
+    transform: skew(10deg);
+    display: inline-block;
+    transition: all 0.2s ease;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    line-height: 2em;
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.4);
+  }
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:after {
+    left: 100%;
+    content: attr(data-tg-on);
+  }
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:before {
+    left: 0;
+    content: attr(data-tg-off);
+  }
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:active {
+    background: #888;
+  }
+  .checkbox-wrapper-8 .tgl-skewed + .tgl-btn:active:before {
+    left: -10%;
+  }
+  .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn {
+    background: #86d993;
+  }
+  .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn:before {
+    left: -100%;
+  }
+  .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn:after {
+    left: 0;
+  }
+  .checkbox-wrapper-8 .tgl-skewed:checked + .tgl-btn:active:after {
+    left: 10%;
+  }
+
     </style>
   
     
@@ -258,21 +399,22 @@ button:active {
   
   <main class="d-flex flex-nowrap h-100">
   
-    <div class="d-flex flex-column flex-shrink-1 p-3 text-bg-dark" style="width: 280px;">
-        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+    <div class="d-flex flex-column flex-shrink-1 p-3 text-bg-dark border sidebar">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
         <img src="./logo.png" width="80px" height="80px">
         <span class="fs-5">Banco de Dados</span>
-        </a>
-        <hr>
-        <ul class="nav nav-pills flex-column mb-auto">
+      </a>
+      <hr>
+      <ul class="nav nav-pills flex-column mb-auto">
+        <!-- Adicione aqui os itens do menu -->
         <li>
-            <a href="" class="nav-link text-white">
+          <a href="" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
             Monitoramento
-            </a>
+          </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+          <a href="#" class="nav-link text-white">
             <svg class ="bi pe-none me-2" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-database-gear" viewBox="0 0 16 16">
                 <path d="M12.096 6.223A4.92 4.92 0 0 0 13 5.698V7c0 .289-.213.654-.753 1.007a4.493 4.493 0 0 1 1.753.25V4c0-1.007-.875-1.755-1.904-2.223C11.022 1.289 9.573 1 8 1s-3.022.289-4.096.777C2.875 2.245 2 2.993 2 4v9c0 1.007.875 1.755 1.904 2.223C4.978 15.71 6.427 16 8 16c.536 0 1.058-.034 1.555-.097a4.525 4.525 0 0 1-.813-.927C8.5 14.992 8.252 15 8 15c-1.464 0-2.766-.27-3.682-.687C3.356 13.875 3 13.373 3 13v-1.302c.271.202.58.378.904.525C4.978 12.71 6.427 13 8 13h.027a4.552 4.552 0 0 1 0-1H8c-1.464 0-2.766-.27-3.682-.687C3.356 10.875 3 10.373 3 10V8.698c.271.202.58.378.904.525C4.978 9.71 6.427 10 8 10c.262 0 .52-.008.774-.024a4.525 4.525 0 0 1 1.102-1.132C9.298 8.944 8.666 9 8 9c-1.464 0-2.766-.27-3.682-.687C3.356 7.875 3 7.373 3 7V5.698c.271.202.58.378.904.525C4.978 6.711 6.427 7 8 7s3.022-.289 4.096-.777ZM3 4c0-.374.356-.875 1.318-1.313C5.234 2.271 6.536 2 8 2s2.766.27 3.682.687C12.644 3.125 13 3.627 13 4c0 .374-.356.875-1.318 1.313C10.766 5.729 9.464 6 8 6s-2.766-.27-3.682-.687C3.356 4.875 3 4.373 3 4Z"/>
                 <path d="M11.886 9.46c.18-.613 1.048-.613 1.229 0l.043.148a.64.64 0 0 0 .921.382l.136-.074c.561-.306 1.175.308.87.869l-.075.136a.64.64 0 0 0 .382.92l.149.045c.612.18.612 1.048 0 1.229l-.15.043a.64.64 0 0 0-.38.921l.074.136c.305.561-.309 1.175-.87.87l-.136-.075a.64.64 0 0 0-.92.382l-.045.149c-.18.612-1.048.612-1.229 0l-.043-.15a.64.64 0 0 0-.921-.38l-.136.074c-.561.305-1.175-.309-.87-.87l.075-.136a.64.64 0 0 0-.382-.92l-.148-.045c-.613-.18-.613-1.048 0-1.229l.148-.043a.64.64 0 0 0 .382-.921l-.074-.136c-.306-.561.308-1.175.869-.87l.136.075a.64.64 0 0 0 .92-.382l.045-.148ZM14 12.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"/>
@@ -281,77 +423,90 @@ button:active {
             </a>
         </li>
         <li>
-            <a href="#" class="nav-link text-white">
+          <a href="#" class="nav-link text-white">
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
             Ajuda
-            </a>
+          </a>
         </li>
         <li class="nav-item">
-            <a href="./index.html" class="nav-link active" aria-current="page">
+          <a href="./index.html" class="nav-link active" aria-current="page">
             <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"></use></svg>
             Home
-            </a>
+          </a>
         </li>
-    
-        </ul>
-        <hr>
-        <div class="dropdown">
+      </ul>
+      <hr>
+      <div class="dropdown">
         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-            <strong>mdo</strong>
+          <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+          <strong>mdo</strong>
         </a>
         <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
-            <li><a class="dropdown-item" href="#">New project...</a></li>
-            <li><a class="dropdown-item" href="#">Settings</a></li>
-            <li><a class="dropdown-item" href="#">Profile</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          <li><a class="dropdown-item" href="#">New project...</a></li>
+          <li><a class="dropdown-item" href="#">Settings</a></li>
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
         </ul>
-        </div>
+      </div>
     </div>
-    <div class="container mt-5">
-      <!-- Div para Dados -->
+    <div class="container mt-4 flex-grow-1">
       <div class="row">
+        <!-- Primeira Coluna -->
         <div class="col-md-6">
-          <div class="border p-3">
+          <!-- Div de Dados -->
+          <div class="border p-3 mb-4">
             <h2>Dados</h2>
             <h5 id="temperatura"></h5>
             <h5 id="umidade"></h5>
             <h5 id="luminosidade"></h5>
             <h5 id="setPointTemp"></h5>
           </div>
-        </div>
-      </div>
     
-      <!-- Div para Gráfico -->
-      <div class="row mt-4">
-        <div class="col-md-6">
-          <div class="border p-3">
-            <h2>Gráfico</h2>
-              <canvas id="myChart"></canvas>
-          </div>
-        </div>
-      </div>
-    
-      <!-- Div para Formulário -->
-      <div class="row mt-4">
-        <div class="col-md-6">
+          <!-- Div de Formulário -->
           <div class="border p-3">
             <h2>Formulário</h2>
             <form>
               <div class="form-group">
-                <input id="setPointTempInput" type="text" name="setPointTemp" class="input" placeholder="Set-Point de Temperatura">
+                <input id="setPointTempInput" type="text" name="setPointTemp" class="form-control" placeholder="Set-Point de Temperatura">
                 <label for="setPointTempInput" class="user-label"></label>
               </div>
-              <!-- Outros campos do formulário, se necessário -->
-              <button type="submit">
-                <span>
-                  Atualizar
-                </span>
-              </button>
+              <div class="d-flex checkbox-wrapper-8">
+                <h5 class="me-4">Resetar Sistema</h5>
+                <input class="tgl tgl-skewed" id="cb3-8" type="checkbox"/>
+                <label class="tgl-btn mx-5" data-tg-off="NO" data-tg-on="RESET" for="cb3-8"></label>
+              </div>
+              
+              <div class="d-flex checkbox-wrapper-8 mt-4">
+                <h5 class="me-4">Resfriamento</h5>
+                <input class="tgl tgl-skewed" id="cb3-7" type="checkbox"/>
+                <label class="tgl-btn mx-5" data-tg-off="OFF" data-tg-on="ON" for="cb3-7"></label>
+              </div>
+              
+              <div class="d-flex"><button type="submit" class="btn btn-primary">
+                Atualizar
+              </button></div>
             </form>
           </div>
         </div>
+    
+        <!-- Segunda Coluna -->
+        <div class="col-md-6">
+          <!-- Gráficos -->
+          <div class="border p-3 mb-3">
+            <h2>Gráficos</h2>
+            <div class="chart-container">
+              <canvas id="chartTemp"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="chartUmidade"></canvas>
+            </div>
+            <div class="chart-container">
+              <canvas id="chartLuminosidade"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
     
