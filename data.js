@@ -106,13 +106,12 @@ function fetchDataDataBase(){
 
     const isResetChecked = resetCheckbox.checked;
     const isLampChecked = lampCheckbox.checked;
-
-    const newSetPoints = {
-      setPointTemperatura: setPointTempInput.value,
+    let newSetPoints = {       
       lampadaLigada: isLampChecked,
-      resetarEsp: isResetChecked
-    };
-    
+      resetarEsp: isResetChecked,
+      setPointTemperatura: setPointTempInput.value};
+
+
     // Faça a solicitação fetch para atualizar o banco de dados com os novos valores
     fetch(`https://api-sfc.vercel.app/atualizar-set`, {
       method: 'PUT',
