@@ -100,22 +100,18 @@ function fetchDataDataBase() {
       updateChart(data.umidade, chartUmidade, umidadeData);
       updateChart(data.luminosidade, chartLumi, lumiData);
 
-      const resetCheckbox = document.getElementById('cb3-8');
       const lampCheckbox = document.getElementById('cb3-7');
 
       const form = document.querySelector("form");
-      resetCheckbox.checked = data.resetarEsp;
       lampCheckbox.checked = data.lampadaLigada;
 
       form.addEventListener('submit', (event) => {
         event.preventDefault();
 
         const setPointTempInput = document.getElementById("setPointTempInput");
-        const isResetChecked = resetCheckbox.checked;
         const isLampChecked = lampCheckbox.checked;
         let newSetPoints = {
           lampadaLigada: isLampChecked,
-          resetarEsp: isResetChecked,
           setPointTemperatura: setPointTempInput.value
         };
 
