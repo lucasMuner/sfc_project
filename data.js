@@ -8,7 +8,7 @@ var chartTemp = new Chart(ctx, {
   data: {
     labels: ["1","2","3","4","5","6","7","8","9","10"], // Inicialmente, nenhum rótulo
     datasets: [{
-      label: 'Temperatura',
+      label: 'Temperatura (°C)',
       data: temperaturaData, // Usará os dados de temperatura
       borderWidth: 1,
       borderColor: 'rgba(255, 99, 132, 1)', // Cor da linha (R, G, B, A)
@@ -30,7 +30,7 @@ var chartUmidade = new Chart(cty, {
   data: {
     labels: ["1","2","3","4","5","6","7","8","9","10"], // Inicialmente, nenhum rótulo
     datasets: [{
-      label: 'Umidade',
+      label: 'Umidade (%)',
       data: umidadeData, // Usará os dados de umidade
       borderWidth: 1,
     }]
@@ -50,7 +50,7 @@ var chartLumi = new Chart(ctz, {
   data: {
     labels: [], // Inicialmente, nenhum rótulo
     datasets: [{
-      label: 'Luminosidade',
+      label: 'Luminosidade (Lux)',
       data: lumiData, // Usará os dados de luminosidade
       borderWidth: 1,
       borderColor: 'rgba(255, 255, 0, 1)', // Cor da linha para luminosidade (R, G, B, A)
